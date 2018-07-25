@@ -7,6 +7,7 @@ from rest_framework.generics import (
     CreateAPIView,
 )
 from .serializers import (
+    RegisterSerializer,
     RestaurantListSerializer,
     RestaurantDetailSerializer,
     RestaurantCreateUpdateSerializer,
@@ -16,7 +17,8 @@ from .permissions import IsOwner
 from rest_framework.filters import OrderingFilter, SearchFilter
 
 #Complete ME!
-class RegisterView():
+class RegisterView(CreateAPIView):
+     serializer_class = RegisterSerializer
 
 class RestaurantListView(ListAPIView):
     queryset = Restaurant.objects.all()
